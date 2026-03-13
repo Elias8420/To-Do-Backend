@@ -3,22 +3,23 @@ on:
   push:
     branches:
       - develop
-  jobs:
-    merge-to-main:
-      runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-        - uses: actions/checkout@v4
+jobs:
+  merge-to-main:
+    runs-on: ubuntu-latest
 
-        - name: Set up JDK 21
-          uses: actions/setup-java@v3
-          with:
-            java-version: '21'
-            distribution: 'temurin'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-        - name: Build with maven
-          run: mvn clean install -DskipTests
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
 
-        - name: Run tests
-          run: mvn test
+      - name: Build with maven
+        run: mvn clean install -DskipTests
+
+      - name: Run tests
+        run: mvn test
