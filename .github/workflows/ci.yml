@@ -19,7 +19,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with maven
+        working-directory: To-Do-List
         run: mvn clean install -DskipTests
 
       - name: Run tests
+        working-directory: To-Do-List
         run: mvn test
