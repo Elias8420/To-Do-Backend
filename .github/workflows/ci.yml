@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - develop
+
   jobs:
     merge-to-main:
       runs-on: ubuntu-latest
