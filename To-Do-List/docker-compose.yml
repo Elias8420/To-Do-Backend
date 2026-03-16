@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres_db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: to-do-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    networks:
+      - to-do-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
