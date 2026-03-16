@@ -1,17 +1,21 @@
 version: '3.8'
 services:
+  #Levanta una imagen de postgresql
   postgres_db:
     image: postgres:${POSTGRES_VERSION}
     container_name: to-do-db
     ports:
+      #Usa el puerto 5432 en el contenedor y el 5433 en la maquina local
       - "5433:5432"
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     networks:
+      #Nombre de la conexion para conectar ambos servicios
       - to-do-network
     volumes:
+      #Para persistencia de datos donde guardara los datos una vez se detenga
       - postgres_data:/var/lib/postgresql/data
 
   app:
@@ -22,6 +26,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
+      #Le hace esperar a que se levante el servicio de postgresql
       - postgres_db
     networks:
       - to-do-network
