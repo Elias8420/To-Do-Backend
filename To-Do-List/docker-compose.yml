@@ -31,3 +31,10 @@ services:
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - ./log:/app/logs
+
+networks:
+  to-do-network:
+    name: to-do-network
+
+volumes:
+  postgres_data:
