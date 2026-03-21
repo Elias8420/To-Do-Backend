@@ -16,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor //Genera un constructor vacio de la clase
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID) // Genera un Id de forma secuencial automaticamente
     private UUID id;
 
     @Column(name = "name")
