@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-@Entity
-@Table(name = "users")
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity // Le indica a spring que es una entidad
+@Table(name = "users") // Nombre con el que aparece en la base de datos
+@Data // Genera los getters y setters de la clase
+@Builder // Permite construir objetos de eata clase de forma mas comoda
+@AllArgsConstructor //Genera un constructor con todos los campos de la clase
+@NoArgsConstructor //Genera un constructor vacio de la clase
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
