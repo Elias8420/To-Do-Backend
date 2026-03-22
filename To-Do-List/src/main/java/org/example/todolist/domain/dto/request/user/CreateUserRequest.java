@@ -30,4 +30,6 @@ public class CreateUserRequest {
     @Pattern(regexp = REGEXP_PASSWORD, message = NOT_ALPHANUMERIC_PASSWORD)
     @Size(min = 4, message = NOT_LONG_PASSWORD)
     private String password;
+    
+    private String image;
 }
