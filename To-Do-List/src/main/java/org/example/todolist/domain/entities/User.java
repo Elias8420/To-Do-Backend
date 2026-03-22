@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
+import static org.example.todolist.common.constants.DBNameConstants.*;
+
 @Entity // Le indica a spring que es una entidad
-@Table(name = "users") // Nombre con el que aparece en la base de datos
+@Table(name = USERTABLE) // Nombre con el que aparece en la base de datos
 @Data // Genera los getters y setters de la clase
 @Builder // Permite construir objetos de eata clase de forma mas comoda
 @AllArgsConstructor //Genera un constructor con todos los campos de la clase
@@ -19,15 +21,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID) // Genera un Id de forma secuencial automaticamente
     private UUID id;
 
-    @Column(name = "name")
+    @Column(name = USERNAME)
     private String username;
 
-    @Column(name = "email")
+    @Column(name = USEREMAIL)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = USERPASSWORD)
     private String password;
 
-    @Column(name = "image")
+    @Column(name = USERIMAGE)
     private String image;
 }
