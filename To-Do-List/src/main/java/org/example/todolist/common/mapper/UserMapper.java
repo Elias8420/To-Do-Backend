@@ -3,9 +3,11 @@ package org.example.todolist.common.mapper;
 import org.example.todolist.domain.dto.request.user.CreateUserRequest;
 import org.example.todolist.domain.dto.response.user.UserResponse;
 import org.example.todolist.domain.entities.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper {
-    public static User toEntityCreate(CreateUserRequest createUserRequest) {
+    public User toEntityCreate(CreateUserRequest createUserRequest) {
         return User.builder()
                 .username(createUserRequest.getUsername())
                 .email(createUserRequest.getEmail())
@@ -14,7 +16,7 @@ public class UserMapper {
                 .build();
     }
 
-    public static UserResponse toDto(User user) {
+    public UserResponse toDto(User user) {
         return UserResponse.builder()
                 .id(user.getId())
                 .name(user.getUsername())
