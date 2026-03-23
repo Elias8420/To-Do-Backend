@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import static org.example.todolist.common.constants.EntitiesConstants.USER_ENTITY;
 import static org.example.todolist.common.constants.ExceptionsMessageConstants.ALREADY_EXIST;
 
-@Service
-@RequiredArgsConstructor
+@Service // Marca la clase como parte de la logica de negocio
+@RequiredArgsConstructor // Crea un constructor con parametros para cada campo
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
