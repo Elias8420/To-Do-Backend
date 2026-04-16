@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 @Builder
+//Agregar el <T> convierte a la clase en una clase generica
 public class PageableResponse<T> {
     private List<T> content;
     private int page;
