@@ -3,6 +3,7 @@ package org.example.todolist.common.mapper;
 import org.example.todolist.domain.dto.request.user.CreateUserRequest;
 import org.example.todolist.domain.dto.response.user.UserResponse;
 import org.example.todolist.domain.entities.User;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,5 +24,9 @@ public class UserMapper {
                 .email(user.getEmail())
                 .image(user.getImage())
                 .build();
+    }
+
+    public Page<UserResponse> toDtoList(Page<User> users) {
+        return users.map(this::toDto);
     }
 }
