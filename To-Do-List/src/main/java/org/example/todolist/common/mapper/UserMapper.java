@@ -25,7 +25,7 @@ public class UserMapper {
                 .image(user.getImage())
                 .build();
     }
-
+    //Retorna un lista de userresponse
     public Page<UserResponse> toDtoList(Page<User> users) {
         return users.map(this::toDto);
     }
