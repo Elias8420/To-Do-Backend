@@ -45,7 +45,7 @@ public class UserController {
 
         Pageable pageable = PageRequest.of(page, size, sort);
         PageableResponse<UserResponse> pagedResponse = userService.getAllUsers(pageable);
-        return buildResponse(USER+FOUND, HttpStatus.FOUND, pagedResponse);
+        return buildResponse(USER+FOUND, HttpStatus.OK, pagedResponse);
     }
 
     public ResponseEntity<GeneralResponse> buildResponse(String message, HttpStatus status, Object data) {
