@@ -13,8 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 import static org.example.todolist.common.constants.EntitiesConstants.USER_ENTITY;
 import static org.example.todolist.common.constants.ExceptionsMessageConstants.ALREADY_EXIST;
 import static org.example.todolist.common.constants.ExceptionsMessageConstants.NOT_FOUND;
@@ -35,11 +33,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    //Se le pasa un pageable con la cantida, numero, etc para retornar
     public PageableResponse<UserResponse> getAllUsers(Pageable pageable) {
+        //Al buscar en el repositorio en la query establecera las condiciones que se le pasa en el pageable
+
         Page<UserResponse> userPage = userMapper.toDtoList(userRepository.findAll(pageable));
+        //Valida si hay usuario o no con la cantidad de elementos
         if(userPage.getTotalElements() == 0)
             throw new ResourceNotFoundException(USER_ENTITY+NOT_FOUND);
-
+        
         return PageableResponse.<UserResponse>builder()
                 .content(userPage.getContent())
                 .page(userPage.getNumber())
